@@ -1,0 +1,12 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.pagination
+{
+    padding: v.$separation 0;
+    display: block !important;
+    @include m.tablet{
+        display: flex !important;
+        justify-content: space-between;
+    }
+}

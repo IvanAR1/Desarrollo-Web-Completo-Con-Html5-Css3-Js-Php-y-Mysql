@@ -1,0 +1,33 @@
+.imagen-contraseña
+{
+    img
+    {
+        width: 60%;
+        display: block;
+        margin: auto;
+        @include telefono
+        {
+            width: 20%;
+        }
+    }
+}
+
+.legend
+{
+    filter: invert(-20%);
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input
+{   display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1rem;
+}
+
+.form-login
+{
+    border-radius: 2rem;
+}

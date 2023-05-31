@@ -1,0 +1,41 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+div.form
+{
+    width: 100%;
+    margin-top: -2rem;
+}
+
+.field
+{
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: space-evenly;
+    label
+    {
+        flex: 0 0 10rem;
+    }
+    input
+    {
+        all:unset;
+        flex: 1;
+        width: 1rem;
+        border-radius: 1rem;
+        padding: calc(v.$separation / 4);
+        margin-left: 1rem;     
+        background-color: inherit;
+        color: v.$white;
+        border: 1px solid v.$gray;
+        &:focus
+        {
+            border: 3px solid v.$white;
+        }
+        &:disabled{
+            background-color: darken(v.$black, 5%);
+            opacity: .5;
+            cursor:not-allowed;
+        }
+    }
+}

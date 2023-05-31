@@ -1,0 +1,35 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+div.actions
+{
+    margin-top: v.$separation;
+    @include m.tablet
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: -2rem;
+        a
+        {
+            &:last-of-type
+            {
+                margin-top: -2rem;
+            }
+        }
+    }
+    a
+    {
+        display: block;
+        color: v.$white;
+        margin: 2rem;
+        margin-bottom: calc(v.$separation / 2);
+        text-align: center;
+        &:hover {
+            color: darken( v.$white, 30% );
+            cursor: pointer;
+        }
+    }
+}

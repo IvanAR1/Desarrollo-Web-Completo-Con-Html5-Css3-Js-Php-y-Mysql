@@ -1,0 +1,80 @@
+.error
+{
+    color: $rojo;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.correcto
+{
+    color: $verde;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: -2rem;
+}
+
+table.propiedades
+{
+    margin-top: 4rem;
+    width: 100%;
+    border-spacing: 0;
+
+    thead
+    {
+        background-color: $verde;
+        th
+        {
+            color: $blanco;
+            padding: 2rem;
+            text-align: center;
+        }
+    }
+
+    .imagen-tabla
+    {
+        width: 10rem;
+        display: block;
+        margin: auto;
+        border-radius: 1rem;
+    }
+
+    tbody
+    {
+        a
+        {
+            border-radius: 1rem;
+        }
+
+        td
+        {
+            text-align: center;
+            &:first-of-type
+            {
+                border-bottom: 0.2rem solid $verde;
+                color: $verde;
+                font-weight: $bold;
+            }
+        }
+    }
+    tr
+    {
+        &:last-of-type
+        {td
+            {
+                border-bottom: none;
+            }
+        }
+    }
+
+}
+
+.boton-admin
+{
+        border-radius: 1rem;
+}
+
+
+.imagen-small
+{
+    width: 20%;
+}

@@ -1,0 +1,30 @@
+.contenedor_index-h2
+    {
+        text-transform: uppercase;
+        font-size: 4rem;
+    }
+@include tablet
+{
+        .iconos-nosotros
+    {
+        @include grid(3, 3rem)
+    }
+}
+.icono
+{
+    inline-size: auto;
+    text-align: center;
+    img
+    {
+        inline-size: auto;
+        height: 10rem;
+        display: block;
+        margin: auto;
+    }
+    
+    h3
+    {
+        inline-size: auto;
+        text-transform: uppercase;
+    }
+}

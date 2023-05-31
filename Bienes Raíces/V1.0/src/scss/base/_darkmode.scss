@@ -1,0 +1,59 @@
+.dark-mode
+{
+    background-color: darken($grisOscuro, 10);
+
+    p,a,h1,h2,h3,h4,blockquote
+    {
+        color: $gris;
+    }
+
+    .anuncio
+    {
+        background-color: $grisOscuro;
+        border: 0.1rem solid $grisOscuro;
+    }
+
+    .precio
+        {
+            color: $verde;
+        }
+
+    .icono-caracteristicas
+    {
+        img
+        {
+            filter: invert(100%);
+        }
+    }
+
+    .formulario
+    {
+        blockquote,legend,label, p
+        {
+            color: $gris;
+        }
+
+        input:not([type="submit"]), textarea, select
+        {
+            background-color: $grisOscuro;
+            border: 0.1rem solid $grisOscuro;
+            color: $blanco;
+        }
+    }
+
+    table.propiedades
+    {
+        td
+        {
+            color: $blanco;
+        }
+    }
+
+    .imagen-contraseña
+    {
+        img
+        {
+            filter: invert(110%);
+        }
+    }
+}
