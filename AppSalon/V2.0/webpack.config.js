@@ -1,5 +1,6 @@
+const { default: axios } = require("axios")
 const path = require("path")
-var webpack = require("webpack");
+var webpack = require("webpack")
 
 module.exports = {
   entry: {
@@ -26,6 +27,7 @@ module.exports = {
         $: "jquery",
         jQuery: "jquery",
         Swal:"sweetalert2/dist/sweetalert2.js",
+        axios:path.resolve(__dirname,"node_modules/axios/dist/browser/axios.cjs"),
         Validator:"validatorjs"
     })
   ],

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { alerts } from "../class/alerts";
 
 export class HttpClient
@@ -12,40 +13,59 @@ export class HttpClient
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 
-    get(url, data = [])
+    async get(url, data = [])
     {
-        return $.ajax({
-            url: url,
-            type: 'GET',
-            data: data,
-        }).fail((jqXHR, textStatus, errorThrown) =>
-        {
-            let error = JSON.parse(jqXHR.responseText);
-            return this.alert.html(error);
+        return await axios.get(url, {params: data})
+        .catch((error) => {
+            if(error.response.status === 401)
+            {
+                if(window.location.pathname !== "/")
+                    window.location.href = "/";
+            }
+            let err = error.response.data;
+            return this.alert.html(err);
         });
     }
-    post(url, data)
+
+    async post(url, data)
     {
-        return $.ajax({
-            url: url,
-            type: 'POST',
-            data: data,
-        }).fail((jqXHR, textStatus, errorThrown) =>
-        {
-            let error = JSON.parse(jqXHR.responseText);
-            return this.alert.html(error);
+        try {
+            return await axios.post(url, data);
+        } catch (error) {
+            if(error.response.status === 401)
+            {
+                if(window.location.pathname !== "/")
+                    window.location.href = "/";
+            }
+            let err = error.response.data;
+            return this.alert.html(err);
+        }
+    }
+    async put(url, data)
+    {
+        return axios.put(url, data)
+        .catch((error) => {
+            if(error.response.status === 401)
+            {
+                if(window.location.pathname !== "/")
+                    window.location.href = "/";
+            }
+            let err = error.response.data;
+            return this.alert.html(err);
         });
     }
-    put(url, data)
+
+    async delete(url, data)
     {
-        return $.ajax({
-            url: url,
-            type: 'PUT',
-            data: data,
-        }).fail((jqXHR, textStatus, errorThrown) =>
-        {
-            let error = JSON.parse(jqXHR.responseText);
-            return this.alert.html(error);
+        return axios.delete(url, data)
+        .catch((error) => {
+            if(error.response.status === 401)
+            {
+                if(window.location.pathname !== "/")
+                    window.location.href = "/";
+            }
+            let err = error.response.data;
+            return this.alert.html(err);
         });
     }
 }

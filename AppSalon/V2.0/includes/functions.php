@@ -36,3 +36,13 @@ function DELETE()
     parse_str(file_get_contents('php://input'), $_DELETE);
     return $_DELETE;
 }
+
+function isAuth()
+{
+    session_start();
+    if(empty($_SESSION["user_id"]))
+    {
+        return false;
+    }
+    return true;
+}

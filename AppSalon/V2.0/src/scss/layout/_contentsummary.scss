@@ -1,0 +1,36 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+#step-3{
+    .services,.summary{
+        padding:3rem 0;
+    }
+
+    h3{
+        margin-bottom: v.$separation;
+    }
+
+    .services{
+        .service{
+            border-bottom: 1px dashed v.$gray;
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+
+        p{
+            margin-bottom: 1rem;
+        }
+
+        span{
+            color:v.$blue;
+            font-weight: v.$bold;
+            font-size: 2.4rem;
+        }
+    }
+
+    .summary{
+        margin-top: 0.1rem;
+        border-top: 2px solid v.$gray;
+    }
+}

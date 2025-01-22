@@ -1,3 +1,4 @@
+import { info } from "sass";
 import { alerts } from "../class/alerts";
 import { HttpClient as http} from "../class/HttpClient";
 
@@ -36,8 +37,8 @@ export class Login
             }
             else
             {
-                return this.http.post('/api/signup',{register:register$}).done(function(info) {
-                    let response = info;
+                return this.http.post('/api/signup',{register:register$}).then(function(info) {
+                    const response = info.data;
                     if(response.status == 'OK')
                     {
                         return this.alert.swal('correcto','success','Se ha creado el usuario correctamente','¡Ingresa ahora!')
@@ -70,7 +71,8 @@ export class Login
             {
                 this.alert.Toast('error','Los datos no son válidos')
             }else{
-                return this.http.post('/api/login',{login:login$}).done((info)=>{
+                return this.http.post('/api/login',{login:login$}).then((response)=>{
+                    const info = response.data;
                     if(info.status == 'OK')
                     {
                         this.alert.swal('correcto','success','Haz ingresado correctamente, ' + info.session.user_name ,"¡Vé a la página de inicio!")
@@ -101,7 +103,8 @@ export class Login
             {
                 this.alert.Toast('error','Los datos no son válidos')
             }else{
-                return this.http.post('/api/forgout',{forgout:forgout$}).done((info)=>{
+                return this.http.post('/api/forgout',{forgout:forgout$}).then((response)=>{
+                    const info = response.data;
                     if(info.status == 'OK')
                     {
                         this.alert.swal('¡Mensaje enviado!','success',info.message ,"¡Vé a la página de inicio!")
@@ -134,7 +137,8 @@ export class Login
                 this.alert.Toast('error','Las contraseñas no coincien o no tienen un formato válido.')
             }else{
                 let token = this.http.urlParams('token');
-                return this.http.put(`/api/rescue`,{rescue:rescue$, token:token}).done((info)=>{
+                return this.http.put(`/api/rescue`,{rescue:rescue$, token:token}).then((response)=>{
+                    const info = response.data;
                     if(info.status == 'OK')
                     {
                         this.alert.swal('¡Contraseña reestablecida!','success',info.message ,"¡Vé a la página de inicio!")

@@ -7,6 +7,6 @@ export class API
     async services()
     {
         let data = await this.http.get('/api/services');
-        return Promise.resolve(data.message);
+        return Promise.resolve(data.data.message);
     }
 }

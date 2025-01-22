@@ -39,6 +39,7 @@ class LoginController
                             $code = 400;
                             $message = User::getAlerts();
                         }else{
+                            session_start();
                             $_SESSION['user_id'] = $user->id;
                             $_SESSION['user_name'] = $user->users_lname . " " . $user->users_name;
                             $_SESSION['user_email'] = $user->users_email;
@@ -72,6 +73,7 @@ class LoginController
         $user = new User();
         if(method() === 'POST')
         {
+            $_POST = json_decode(file_get_contents('php://input'), true);
             $user->sync($_POST['register']);
             $validate = $user->NewAccountValidate();
             if(!empty($validate))
@@ -226,5 +228,11 @@ class LoginController
             }
             $router->render('auth/rescue');
         }
+    }
+
+    public static function logout(Router $router){
+        session_start();
+        session_destroy();
+        return json_response(array('status'=>"OK"), 200);
     }
 }

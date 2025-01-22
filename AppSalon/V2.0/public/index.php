@@ -25,6 +25,8 @@ $router->prefix('/api',function($router)
     $router->post('/signup', [LoginController::class, 'register']);
     $router->put('/rescue', [LoginController::class, 'rescue']);
     $router->get('/services',[APIController::class, 'index']);
+    $router->post('/reservation',[APIController::class, 'store']);
+    $router->post('/logout',[LoginController::class, 'logout']);
 });
 
 // Check and validate the routes, which excite and assign them the functions of the Controller

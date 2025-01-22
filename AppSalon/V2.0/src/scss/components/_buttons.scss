@@ -25,6 +25,10 @@
         {
             display: none;
         }
+        &.hidden
+        {
+            visibility: hidden;
+        }
     }
     &.btn-page
     {
@@ -36,6 +40,10 @@
         &.hide
         {
             visibility: hidden;
+        }
+        &.hidden
+        {
+            display: none;
         }
     }
 }

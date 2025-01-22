@@ -6,7 +6,7 @@ export class tab
     session = new SessionStorage();
     step = 1;
     OnInit(){
-        this.paginator();
+        this.Paginator();
         this.ShowSection();
         this.previousPage();
         this.nextPage();
@@ -20,11 +20,7 @@ export class tab
             let step = parseInt(e.target.dataset.step);
             this.step = step;
             this.ShowSection(step);
-            this.paginator();
-            if(step === 3){
-                let services = new Services();
-                services.showSummary(this.session.getArray('quotes'));
-            };
+            this.Paginator();
         })
     }
 
@@ -37,25 +33,29 @@ export class tab
         $(`#step-${select}`).addClass('show');
     }
 
-    paginator()
+    Paginator()
     {
+        if(!$("#reservation").hasClass('hidden'))
+            $("#reservation").addClass('hidden');
         const previousPage = $('#before');
         const nextPage = $('#after');
         switch(this.step)
         {
             case 1:
-                previousPage.addClass('hide');
-                nextPage.removeClass('hide');
+                previousPage.addClass('hidden');
+                nextPage.removeClass('hidden');
                 break;
             case 2:
-                previousPage.removeClass('hide');
-                nextPage.removeClass('hide');
+                previousPage.removeClass('hidden');
+                nextPage.removeClass('hidden');
                 break;
             case 3:
-                previousPage.removeClass('hide');
-                nextPage.addClass('hide');
+                previousPage.removeClass('hidden');
+                nextPage.addClass('hidden');
+                let services = new Services();
+                services.showSummary(this.session.getArray('quotes'));
                 break;
-        }        
+        }
     }
 
     previousPage()
@@ -65,7 +65,7 @@ export class tab
         {
             if(this.step<=1)return;
             this.step--;
-            this.paginator();
+            this.Paginator();
             this.ShowSection();
         })
     }
@@ -77,7 +77,7 @@ export class tab
         {
             if(this.step>=3)return;
             this.step++;
-            this.paginator();
+            this.Paginator();
             this.ShowSection();
         })
     }

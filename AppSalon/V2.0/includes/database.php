@@ -7,7 +7,7 @@ function connection() : mysqli
     $dotenv->load();
     
     try {
-        $db = mysqli_connect($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $_ENV['DB_DATABASE']);
+        $db = mysqli_connect($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $_ENV['DB_DATABASE'], $_ENV['DB_PORT']);
         mysqli_set_charset($db, 'utf8');
     }
     catch (mysqli_sql_exception $e) {

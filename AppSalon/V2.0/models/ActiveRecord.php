@@ -141,7 +141,6 @@ class ActiveRecord {
         $query .= join("','", array_values($attributes));
         $query .= "')";
 
-
         // Query response
         $response = self::$db->query($query);
         return [

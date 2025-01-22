@@ -29,7 +29,6 @@ function reload()
 		injectChanges: true,
 		// port: 8081, ... can change browser-sync port from default 3000 if needed
 		proxy: "http://www.appsalon.com.mx",
-        host:"www.appsalon.com.mx",
         open: 'external',
         logLevel: 'debug',
 	});

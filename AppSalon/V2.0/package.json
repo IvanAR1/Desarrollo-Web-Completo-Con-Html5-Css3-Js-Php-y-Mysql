@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "build": "gulp build"
   },
   "author": "Danilo Iván Alanis Rocha",
   "license": "ISC",
@@ -38,6 +39,7 @@
   },
   "dependencies": {
     "@sweetalert2/themes": "^5.0.15",
+    "axios": "^1.7.9",
     "sweetalert2": "^11.7.1",
     "validatorjs": "^3.22.1"
   }

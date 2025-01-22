@@ -1,6 +1,10 @@
 {% extends 'layout.view.php' %}
 {% block content %}
 <h1 class="name-page">App Peluqueria</h1>
+<div class="user-info">
+    <p>Bienvenido <span class="user-name">{{username}}</span></p>
+    <button id="btn-logout" class="btn btn-logout">Cerrar Sesión</button>
+</div>
 <p class="page-description">Elije tus servicios y coloca tus datos.</p>
 
 <div class="app">
@@ -33,16 +37,11 @@
             </div>
         </form>
     </div>
-    <div id="step-3" class="section">
-        <div id="title-summary">
-            <h2>Resumen</h2>
-            <p class="text-center">Verifica que la información sea correcta.</p>
-        </div>
-        <div class="content-summary"></div>
-    </div>
+    <div id="step-3" class="section container" id="content-summary"></div>
     <div class="pagination">
         <button class="btn btn-page" id="before">&laquo; Anterior</button>
         <button class="btn btn-page" id="after">Siguiente &raquo;</button>
+        <button class="btn btn-page hidden" id="reservation">Reservar</button>
     </div>
 </div>
 {% endblock %}

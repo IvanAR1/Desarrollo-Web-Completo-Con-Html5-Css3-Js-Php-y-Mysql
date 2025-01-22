@@ -4,7 +4,7 @@ namespace Model;
 class ServicesModel extends ActiveRecord
 {
     protected static $table = "services";
-    protected static $column = [
+    protected static $columns = [
         'id',
         'services_name',
         'services_price',

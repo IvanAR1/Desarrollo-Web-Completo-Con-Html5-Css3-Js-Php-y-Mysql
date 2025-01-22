@@ -7,6 +7,10 @@ export class SessionStorage
 
     getArray(key){
         const storedJsonString = sessionStorage.getItem(key);
-        return JSON.parse(storedJsonString);
+        return JSON.parse(storedJsonString) || [];
+    }
+
+    clear(){
+        sessionStorage.clear();
     }
 }

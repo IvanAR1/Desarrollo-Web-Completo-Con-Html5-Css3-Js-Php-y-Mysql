@@ -17,6 +17,10 @@ class Router
 
     public function post(string $route, callable | string | array $callback)
     {
+        if(empty($_POST))
+        {
+            $_POST = json_decode(file_get_contents('php://input'), true);
+        }
         $this->addRoute('POST',$route,$callback);
     }
 
